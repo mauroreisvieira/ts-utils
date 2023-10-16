@@ -1,0 +1,26 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Husky https://typicode.github.io/husky/#/
+# Git hooks https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+
+# https://www.devwithimagination.com/2020/04/13/git-commit-hooks-for-branch-naming-using-husky/
+
+# Retrieve the current branch name
+local_branch_name=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+# Prevent rebases from failing
+# Prevent commits on main/develop branches from failing 
+valid_branch_regex='^((fix|feat|refactor|tests|docs|ci)\/[a-zA-Z0-9\-]+)|main|develop$'
+
+branch_message="\n\nError: Invalid branch name ($local_branch_name).\nBranch names should match: $valid_branch_regex. Your commit will be rejected.\n\n"
+lint_message="\nError: Linting failed. Your commit will be rejected.\n\n"
+
+# Validate branch name
+if ! [[ "$local_branch_name" =~ $valid_branch_regex ]]; then
+    echo "$branch_message"
+    exit 1
+fi
+
+# Run lint-staged and prevent commit if linting fails
+npx lint-staged || { echo "$lint_message"; exit 1; }
