@@ -11,7 +11,7 @@ local_branch_name=$(git symbolic-ref --short HEAD 2>/dev/null)
 
 # Prevent rebases from failing
 # Prevent commits on main/develop branches from failing 
-valid_branch_regex='^((fix|feat|refactor|tests|docs|ci)\/[a-zA-Z0-9\-]+)|main|develop$'
+valid_branch_regex='^((hotfix|fix|build|feat|perf|refactor|test|style|revert|chore|docs|ci)\/[a-zA-Z0-9\-]+)|main|develop$'
 
 branch_message="\n\nError: Invalid branch name ($local_branch_name).\nBranch names should match: $valid_branch_regex. Your commit will be rejected.\n\n"
 lint_message="\nError: Linting failed. Your commit will be rejected.\n\n"
