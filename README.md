@@ -22,7 +22,7 @@ yarn add @didiermargarido/ts-utils
 ```
 
 ## Usage
-TS Utils provides a comprehensive set of utility functions that can streamline various aspects of your TypeScript projects.\ 
+TS Utils provides a comprehensive set of utility functions that can streamline various aspects of your TypeScript projects.\
 Here's a detailed guide on how to use some of the key utility functions available in TS Utils:
 
 ### isDefined
