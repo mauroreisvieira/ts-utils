@@ -1,8 +1,8 @@
 /**
  * Demo Test
- * Run "npm run start"
+ * Run `npm run start`
  * Uncomment code and open new terminal tab
- * Run "npm run demo"
+ * Run `npm run demo`
  * Check output
  */
 
