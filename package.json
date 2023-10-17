@@ -25,6 +25,7 @@
     "prepare": "husky install",
     "start": "tsc -p tsconfig.json -w",
     "build": "tsc -p tsconfig.json",
+    "rebuild": "run-s clean:build build",
     "demo": "ts-node demo.ts",
     "lint": "run-s lint:script lint:format",
     "lint:script": "eslint . --ext ts",
