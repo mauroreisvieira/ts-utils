@@ -8,7 +8,7 @@ import { isDefined } from "../";
 describe("Util > isDefined", () => {
   // Defined value
   it("should return true if value is defined", () => {
-    const values = ["DM", 1000, ["DM"], [], {}, 0, ""];
+    const values = ["DM", 1000, ["DM"], [], {}, 0, "", () => {}];
     values.forEach((value) => expect(isDefined(value)).toBe(true));
   });
 
