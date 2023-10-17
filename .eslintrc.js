@@ -44,6 +44,8 @@ const config = {
     "spaced-comment": "error",
     // Disallows duplicate module imports
     "no-duplicate-imports": "error",
+    // Enforces the use of braces around the body of an arrow function when it's necessary
+    "arrow-body-style": ["error", "as-needed"],
     // Enforces consistent type assertion style (never use 'as' syntax).
     "@typescript-eslint/consistent-type-assertions": [
       "error",
