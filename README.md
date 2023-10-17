@@ -2,13 +2,17 @@
 
 TS Utils is a collection of TypeScript utility functions.
 
+[![GitHub Tag](https://img.shields.io/github/release/didiermargarido/ts-utils.svg?style=for-the-badge)](https://github.com/didiermargarido/ts-utils/releases)
+[![GitHub issues](https://img.shields.io/github/issues/didiermargarido/ts-utils.svg?style=for-the-badge)](https://github.com/didiermargarido/ts-utils/issues)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://github.com/didiermargarido/ts-utils/blob/master/LICENSE)
+
 ## Installation
 ```bash
 npm install @didiermargarido/ts-utils
 ```
 
 ## Usage
-The `ts-utils` package provides several utility functions:
+List of available utilities below:
 
 ### isDefined
 Method to check if value is defined.
@@ -45,3 +49,9 @@ isEmpty(undefined);
 isEmpty("DM");
 isEmpty({ key: "Demo" }); 
 ```
+
+## Author
+
+**Didier Margarido**
+
+[github/didiermargarido](https://github.com/didiermargarido)
