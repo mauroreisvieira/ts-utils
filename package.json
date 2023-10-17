@@ -2,6 +2,7 @@
   "name": "@didiermargarido/ts-utils",
   "description": "Collection of common utils in Typescript",
   "version": "1.0.0",
+  "license": "MIT",
   "author": "Didier Margarido",
   "keywords": [
     "typescript",
