@@ -7,7 +7,10 @@
  */
 const config = {
   // Extend the default configuration with conventional commit message format
-  extends: "semantic-release-config-conventional"
+  extends: "semantic-release-config-conventional",
+  // Define the branches for which semantic releases will be triggered.
+  // Only commits made to the specified branches will trigger versioning and changelog generation.
+  branches: ["main"]
 };
 
 module.exports = config;
