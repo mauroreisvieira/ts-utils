@@ -1,5 +1,5 @@
 # TS Utils
-[![npm](https://img.shields.io/npm/dt/@didiermargarido/ts-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/hello-week)
+[![npm](https://img.shields.io/npm/dt/@didiermargarido/ts-utils.svg?style=for-the-badge)](https://www.npmjs.com/package/@didiermargarido/ts-utils)
 [![GitHub Tag](https://img.shields.io/github/release/didiermargarido/tsutils.svg?style=for-the-badge)](https://github.com/didiermargarido/ts-utils/releases)
 [![GitHub issues](https://img.shields.io/github/issues/didiermargarido/ts-utils.svg?style=for-the-badge)](https://github.com/didiermargarido/ts-utils/issues)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://github.com/didiermargarido/ts-utils/blob/master/LICENSE)
@@ -58,6 +58,7 @@ isEmpty(undefined);
 
 // Output: false
 isEmpty("DM");
+isEmpty(["DM", 36]);
 isEmpty({ key: "Demo" }); 
 ```
 

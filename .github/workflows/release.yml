@@ -39,24 +39,24 @@ jobs:
       - name: Dependency Validation 
         run: npm audit signatures
 
-      # If publish to Npm
-      - name: Setup NPM
-        run: |
-          echo "//registry.npmjs.org :_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
-          echo "access=public" >> .npmrc
+      # # If publish to Npm
+      # - name: Setup NPM
+      #   run: |
+      #     echo "//registry.npmjs.org :_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+      #     echo "access=public" >> .npmrc
 
-      # If publish to GitHub
-      - name: Setup GitHub
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
-          echo "@didiermargarido:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "access=public" >> .npmrc
+      # # If publish to GitHub
+      # - name: Setup GitHub
+      #   run: |
+      #     echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+      #     echo "@didiermargarido:registry=https://npm.pkg.github.com" >> .npmrc
+      #     echo "access=public" >> .npmrc
 
-      - name: Git User
-        run: git config --list
+      # - name: Git User
+      #   run: git config --list
 
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm exec -- semantic-release
+      # - name: Release
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   run: npm exec -- semantic-release
