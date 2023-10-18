@@ -3,6 +3,7 @@ name: Release
 on:
   push:
     branches: ["main"]
+
   workflow_dispatch:
 
 jobs:
@@ -10,10 +11,10 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
+      contents: write # publish a GitHub release
+      issues: write # comment on released issues
+      pull-requests: write # comment on released pull requests
+      id-token: write # enable use of OIDC for npm provenance
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -29,34 +30,22 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Run Lint
+        run: npm run lint
+
       - name: Run Tests
         run: npm run test
 
       - name: Build
         run: npm run build
 
-      # Verify the integrity of provenance attestations and registry signatures for installed dependencies
-      - name: Dependency Validation 
-        run: npm audit signatures
+      - name: Setup NPM Auth
+        run: |
+          echo "//registry.npmjs.org :_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+          echo "access=public" >> .npmrc
 
-      # # If publish to Npm
-      # - name: Setup NPM
-      #   run: |
-      #     echo "//registry.npmjs.org :_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
-      #     echo "access=public" >> .npmrc
-
-      # # If publish to GitHub
-      # - name: Setup GitHub
-      #   run: |
-      #     echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
-      #     echo "@didiermargarido:registry=https://npm.pkg.github.com" >> .npmrc
-      #     echo "access=public" >> .npmrc
-
-      # - name: Git User
-      #   run: git config --list
-
-      # - name: Release
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   run: npm exec -- semantic-release
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm exec -- semantic-release
